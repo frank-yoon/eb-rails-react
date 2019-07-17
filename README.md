@@ -1,5 +1,5 @@
-Ruby on Rails (RoR) in AWS Elastic Beanstalk
-============================================
+React on Rails (RoR) in AWS Elastic Beanstalk
+=============================================
 
 
 
@@ -44,3 +44,35 @@ An easy way to accomplish this is to install and use the Ruby Version Manager.
 `$ rails new eb-rails`
 
 This step is for documentation, as this repository is already comprised of a Rails project.
+
+
+
+Add React
+---------
+
+https://github.com/reactjs/react-rails
+
+If uploading and deploying from this repository, then skip to [Upload and Deploy to AWS Elastic Beanstalk](##Upload-and-Deploy-to-AWS-Elastic-Beanstalk).
+
+Add *webpacker* and *react-rails* to your gemfile:
+
+```
+gem 'webpacker'
+gem 'react-rails'
+```
+
+Now run the installers:
+
+```
+$ bundle install
+$ rails webpacker:install       # OR (on rails version < 5.0) rake webpacker:install
+$ rails webpacker:install:react # OR (on rails version < 5.0) rake webpacker:install:react
+$ rails generate react:install
+```
+
+Link the JavaScript pack in Rails view using javascript_pack_tag helper:
+
+```
+<!-- application.html.erb in Head tag below turbolinks -->
+<%= javascript_pack_tag 'application' %>
+```
