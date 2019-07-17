@@ -96,3 +96,17 @@ Rails.application.routes.draw do
   get 'welcome_page/welcome'
   root 'welcome_page#welcome'
 ```
+
+
+### Generate a new React component:
+
+https://github.com/reactjs/react-rails
+
+`$ rails g react:component HelloWorld greeting:string`
+
+Render it in a Rails view, such as _app/views/welcome_page/welcome.html.erb_:
+
+```
+<!-- erb: paste this in view -->
+<%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
+```
