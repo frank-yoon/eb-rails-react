@@ -143,3 +143,31 @@ Add the following import (link markup) to _app/assets/stylesheets/welcome_page.s
 Add the following import (link markup) to _app/assets/stylesheets/welcome_page.scss_:
 
 `@import url(https://fonts.googleapis.com/icon?family=Material+Icons);`
+
+
+
+
+Material-UI Quick Start
+-----------------------
+
+https://material-ui.com/getting-started/usage
+
+Replace the content of _app/javascript/components/HelloWorld.js_ with the following:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Button from '@material-ui/core/Button';
+
+class App extends React.Component {
+    render() {
+        return (
+            <Button variant="contained" color="primary">
+                Hello World
+            </Button>
+        );
+    }
+}
+
+export default App;
+```

@@ -1,16 +1,15 @@
-import React from "react"
-import PropTypes from "prop-types"
-class HelloWorld extends React.Component {
-  render () {
-    return (
-      <React.Fragment>
-        Greeting: {this.props.greeting}
-      </React.Fragment>
-    );
-  }
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Button from '@material-ui/core/Button';
+
+class App extends React.Component {
+    render() {
+        return (
+            <Button variant="contained" color="primary">
+                Hello World
+            </Button>
+        );
+    }
 }
 
-HelloWorld.propTypes = {
-  greeting: PropTypes.string
-};
-export default HelloWorld
+export default App;
