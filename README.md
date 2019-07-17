@@ -82,7 +82,61 @@ files:
       gem install bundler -v 2.0.2
 ```
 
-This repository already includes `gem_install_bundler.config`.
+Add the following .ebextensions config script to update Node.js and install Yarn for deployment of React: `react-rails.config`
+
+```
+# Updates Node and installs Yarn so that React-Rails can be uploaded and deployed to AWS Elastic Beanstalk.
+# https://github.com/shakacode/react_on_rails/blob/master/docs/additional-reading/elastic-beanstalk.md
+
+files:
+  # Runs before `./10_bundle_install.sh`:
+  "/opt/elasticbeanstalk/hooks/appdeploy/pre/09_react-rails.sh" :
+    mode: "000775"
+    owner: root
+    group: users
+    content: |
+      #!/usr/bin/env bash
+      set -xe
+
+      # Install Node.js
+      echo "Installing Node.js"
+      curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
+      yum -y install nodejs
+
+      # Install Yarn
+      echo "Installing Yarn"
+      wget https://dl.yarnpkg.com/rpm/yarn.repo -O /etc/yum.repos.d/yarn.repo;
+      yum -y install yarn;
+
+      # Yarn install
+      yarn
+```
+
+Add the following .ebextensions config script to configure NGINX to serve React /packs: `nginx.config`
+
+```
+# Modifies webapp_healthd.conf to allow React-Rails requests for /packs.
+
+files:
+  # Runs before `./10_bundle_install.sh`:
+  "/opt/elasticbeanstalk/hooks/appdeploy/pre/09_nginx_modify.sh" :
+    mode: "000775"
+    owner: root
+    group: users
+    content: |
+      #!/usr/bin/env bash
+      set -xe
+
+      if ! grep -q "location[[:space:]]*/packs" /etc/nginx/conf.d/webapp_healthd.conf; then
+        sed -i 's|\([[:space:]]*\)\(location[[:space:]]*/assets\)|\1location /packs { alias /var/app/current/public/packs; gzip_static on; gzip on; expires max; add_header Cache-Control public; }\n\n\1\2|' /etc/nginx/conf.d/webapp_healthd.conf
+      fi
+
+container_commands:
+  nginx_reload:
+    command: "sudo service nginx reload"
+```
+
+This repository already includes `gem_install_bundler.config`, `react-rails.config`, and `nginx.config`.
 
 
 ### Include credentials
