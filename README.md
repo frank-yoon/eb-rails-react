@@ -76,3 +76,23 @@ Link the JavaScript pack in Rails view using javascript_pack_tag helper:
 <!-- application.html.erb in Head tag below turbolinks -->
 <%= javascript_pack_tag 'application' %>
 ```
+
+
+
+Generate a new React-Rails website
+----------------------------------
+
+
+### Generate a Rails controller, route, and view for your welcome page:
+
+https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ruby-rails-tutorial.html#ruby-rails-tutorial-generate
+
+`$ rails generate controller WelcomePage welcome`
+
+Add the following route to _config/routes.rb_:
+
+```
+Rails.application.routes.draw do
+  get 'welcome_page/welcome'
+  root 'welcome_page#welcome'
+```
