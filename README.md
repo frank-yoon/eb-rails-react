@@ -110,3 +110,15 @@ Render it in a Rails view, such as _app/views/welcome_page/welcome.html.erb_:
 <!-- erb: paste this in view -->
 <%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
 ```
+
+
+
+Install Grommet and create an app
+---------------------------------
+
+https://github.com/grommet/grommet-starter-new-app
+
+
+### Install Grommet
+
+`$ npm install grommet grommet-icons styled-components --save`

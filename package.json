@@ -5,10 +5,13 @@
     "@babel/preset-react": "^7.0.0",
     "@rails/webpacker": "^4.0.7",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "grommet": "^2.7.3",
+    "grommet-icons": "^4.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react_ujs": "^2.5.0"
+    "react_ujs": "^2.5.0",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.7.2"
