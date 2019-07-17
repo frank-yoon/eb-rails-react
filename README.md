@@ -1,5 +1,5 @@
-React on Rails (RoR) in AWS Elastic Beanstalk
-=============================================
+React on Rails (RoR) in AWS Elastic Beanstalk, with Material-UI
+===============================================================
 
 
 
@@ -110,3 +110,36 @@ Render it in a Rails view, such as _app/views/welcome_page/welcome.html.erb_:
 <!-- erb: paste this in view -->
 <%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
 ```
+
+
+
+Install the React UI framework, Material-UI
+-------------------------------------------
+
+https://material-ui.com/getting-started/installation
+
+The following steps are for documentation, as this repository is already comprised of a Material-UI installation.
+
+
+### Install Material-UI
+
+`$ npm install @material-ui/core`
+
+
+### Install the prebuilt SVG Material icons
+
+`$ npm install @material-ui/icons`
+
+
+### Roboto Font
+
+Add the following import (link markup) to _app/assets/stylesheets/welcome_page.scss_:
+
+`@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap);`
+
+
+### Font Icons
+
+Add the following import (link markup) to _app/assets/stylesheets/welcome_page.scss_:
+
+`@import url(https://fonts.googleapis.com/icon?family=Material+Icons);`
