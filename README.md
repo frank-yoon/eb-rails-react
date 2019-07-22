@@ -143,3 +143,18 @@ Add the following import (link markup) to _app/assets/stylesheets/welcome_page.s
 Add the following import (link markup) to _app/assets/stylesheets/welcome_page.scss_:
 
 `@import url(https://fonts.googleapis.com/icon?family=Material+Icons);`
+
+
+
+Install the Material-UI Paperbase theme
+---------------------------------------
+
+The following steps are for documentation, as this repository is already comprised of a Material-UI Paperbase installation.
+
+Copy over the following files:
+* _material-ui/docs/src/pages/premium-themes/paperbase/_ -> _eb-rails-react/app/javascript/components/_
+* _material-ui/static/images/avatars/_ -> _eb-rails-react/public/images/avatars/_
+
+Replace the content in _app/views/welcome_page/welcome.html.erb_ with the following:
+
+`<%= react_component("Paperbase") %>`
