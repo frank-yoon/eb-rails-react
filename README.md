@@ -158,3 +158,20 @@ Copy over the following files:
 Replace the content in _app/views/welcome_page/welcome.html.erb_ with the following:
 
 `<%= react_component("Paperbase") %>`
+
+
+
+Deploying to AWS Elastic Beanstalk
+----------------------------------
+
+1. Use Git to create a feature branch from this (framework/mui/paperbase-eb) branch and merge in master.
+2. Resolve merge conflicts.
+3. Add the following IF block to _.ebextensions/nginx.config_ to configure NGINX to serve _/images_:
+
+```
+      if ! grep -q "location[[:space:]]*/images" /etc/nginx/conf.d/webapp_healthd.conf; then
+        sed -i 's|\([[:space:]]*\)\(location[[:space:]]*/assets\)|\1location /images { alias /var/app/current/public/images; gzip_static on; gzip on; expires max; add_header Cache-Control public; }\n\n\1\2|' /etc/nginx/conf.d/webapp_healthd.conf
+      fi
+```
+
+4. Follow the instructions in the merged _README.md_ for deploying and uploading to AWS Elastic Beanstalk.
