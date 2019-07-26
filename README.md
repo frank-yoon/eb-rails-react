@@ -159,3 +159,29 @@ The following steps are for documentation, as this repository is already compris
 * Replace the contents of _eb-rails-react⁩/app/javascript⁩/components/_ with that of _material-ui/docs/src/pages/premium-themes/onepirate/_.
 
 * Copy the _material-ui⁩/docs/⁨static/⁨themes/onepirate_⁩ directory to _eb-rails-react⁩/public/themes/_.
+
+
+
+Wire up the Material-UI theme, Onepirate
+----------------------------------------
+
+
+### Wire up Rails to the React root
+
+Replace the contents of _eb-rails-react⁩/⁨app/⁨views/welcome.html.erb_ with the following:
+
+`<%= react_component("Home") %>`
+
+
+### Fix paths
+
+Example: Within the _eb-rails-react⁩/app/javascript⁩/components/_ directory, replace the text _/static/themes/_ with _/themes/_.
+
+
+### Install missing dependencies
+
+```
+$ npm install --save react-final-form final-form
+$ npm i markdown-to-jsx
+$ npm install validator
+```
