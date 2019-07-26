@@ -1,0 +1,14 @@
+# Ignore Node modules.
+/node_modules/*
+
+# Ignore react-rails development files.
+/db/development.sqlite3
+/public/packs/*
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+
+# Ignore git files.
+/.git/*
+.gitignore
