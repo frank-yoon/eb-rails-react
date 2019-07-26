@@ -143,3 +143,19 @@ Add the following import (link markup) to _app/assets/stylesheets/welcome_page.s
 Add the following import (link markup) to _app/assets/stylesheets/welcome_page.scss_:
 
 `@import url(https://fonts.googleapis.com/icon?family=Material+Icons);`
+
+
+
+Install the Material-UI theme, Onepirate
+----------------------------------------
+
+https://github.com/mui-org/material-ui/tree/master/docs/src/pages/premium-themes/onepirate
+
+The following steps are for documentation, as this repository is already comprised of a Onepirate implementation.
+
+
+### Install Onepirate
+
+* Replace the contents of _eb-rails-react⁩/app/javascript⁩/components/_ with that of _material-ui/docs/src/pages/premium-themes/onepirate/_.
+
+* Copy the _material-ui⁩/docs/⁨static/⁨themes/onepirate_⁩ directory to _eb-rails-react⁩/public/themes/_.
