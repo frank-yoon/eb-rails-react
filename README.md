@@ -185,3 +185,19 @@ $ npm install --save react-final-form final-form
 $ npm i markdown-to-jsx
 $ npm install validator
 ```
+
+
+
+Make Onepirate compatible with AWS Elastic Beanstalk
+----------------------------------------------------
+
+
+### Configure NGINX to serve /themes
+
+Add the following location block to _.ebextensions/nginx.config_:
+
+```
+if ! grep -q "location[[:space:]]*/themes" /etc/nginx/conf.d/webapp_healthd.conf; then
+	sed -i 's|\([[:space:]]*\)\(location[[:space:]]*/assets\)|\1location /themes { alias /var/app/current/public/themes; gzip_static on; gzip on; expires max; add_header Cache-Control public; }\n\n\1\2|' /etc/nginx/conf.d/webapp_healthd.conf
+fi
+```
