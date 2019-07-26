@@ -56,7 +56,7 @@ function ProductHeroLayout(props) {
     <section className={classes.root}>
       <Container className={classes.container}>
         <img
-          src="/static/themes/onepirate/productHeroWonder.png"
+          src="/themes/onepirate/productHeroWonder.png"
           alt="wonder"
           width="147"
           height="80"
@@ -66,7 +66,7 @@ function ProductHeroLayout(props) {
         <div className={clsx(classes.background, backgroundClassName)} />
         <img
           className={classes.arrowDown}
-          src="/static/themes/onepirate/productHeroArrowDown.png"
+          src="/themes/onepirate/productHeroArrowDown.png"
           height="16"
           width="12"
           alt="arrow down"
